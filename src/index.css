@@ -1,0 +1,109 @@
+@import url('https://rsms.me/inter/inter.css');
+@import "tailwindcss";
+
+@theme {
+  /* Linear dark palette */
+  --color-void: #08090a;
+  --color-carbon: #0f1011;
+  --color-obsidian: #161718;
+  --color-graphite: #23252a;
+  --color-smoke: #383b3f;
+  --color-ash: #62666d;
+  --color-fog: #8a8f98;
+  --color-mist: #d0d6e0;
+  --color-bone: #e5e5e6;
+  --color-paper: #ffffff;
+  --color-acid: #e4f222;
+  --color-pulse: #27a644;
+  --color-coral: #eb5757;
+  --color-teal: #02b8cc;
+  --color-iris: #6366f1;
+  --color-lavender: #8b5cf6;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Berkeley Mono', ui-monospace, 'JetBrains Mono', monospace;
+
+  --radius-card: 12px;
+  --radius-btn: 6px;
+  --radius-pill: 9999px;
+  --radius-badge: 4px;
+}
+
+/* Светлая тема — инвертируем поверхности, сохраняя геометрию */
+:root[data-theme='light'] {
+  --color-void: #fafafa;
+  --color-carbon: #ffffff;
+  --color-obsidian: #f4f4f5;
+  --color-graphite: #e5e5e6;
+  --color-smoke: #d4d4d8;
+  --color-ash: #71717a;
+  --color-fog: #52525b;
+  --color-mist: #3f3f46;
+  --color-bone: #18181b;
+  --color-paper: #08090a;
+  /* acid-lime в светлой теме чуть темнее — иначе «слепит» */
+  --color-acid: #c8d600;
+}
+
+* {
+  border-color: var(--color-graphite);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'cv01'on, 'ss03'on, 'zero'on;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-mist);
+  font-family: var(--font-sans);
+  letter-spacing: -0.011em;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+/* Utility: hairline inset border (Linear signature) */
+.hairline {
+  box-shadow: inset 0 0 0 1px var(--color-graphite);
+}
+
+/* Utility: hero atmospheric floor */
+.hero-floor {
+  /* Заменяем color-mix на rgba для обхода бага Safari */
+  background: linear-gradient(180deg,
+      rgba(8, 9, 10, 0.9) 0%,
+      rgba(208, 214, 224, 0.08) 100%);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--color-mist);
+  border-radius: var(--radius-btn);
+}
+
+::selection {
+  background: var(--color-acid);
+  color: var(--color-void);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-graphite);
+  border-radius: 9999px;
+  border: 2px solid var(--color-void);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-smoke);
+}
