@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section id="top" className="relative pt-40 pb-24 overflow-hidden">
       {/* atmospheric floor */}
-      <div className="pointer-events-none absolute inset-0 hero-floor opacity-60" />
+      {/* <div className="pointer-events-none absolute inset-0 hero-floor opacity-60" /> */}
       {/* lime glow behind avatar */}
       <div
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2
